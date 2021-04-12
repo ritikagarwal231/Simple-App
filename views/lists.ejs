@@ -1,0 +1,31 @@
+<%- include("header")-%>
+<h3><a href="/employee" class="btn btn-secondary"><i class="fa fa-plus"></i> Create New Employee</a> Employee List</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>City</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0;i< list.length;i++){ %>
+            
+        <tr>
+            <td><%=list[i].fullName%></td>
+            <td><%=list[i].email%></td>
+            <td><%=list[i].mobile%></td>
+            <td><%=list[i].city%></td>
+            <td>
+                <a href="/employee/<%=list[i]._id%>"><i class="fa fa-pencil fa-lg" aria-hidden="true"></i></a>
+                <a href="/employee/delete/<%=list[i]._id%>" onclick=" return confirm('Are you sure to delete this record?')"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+            </td>
+        </tr>
+
+            <% } %>
+            
+    </tbody>
+</table>
+<%- include("footer")-%>
